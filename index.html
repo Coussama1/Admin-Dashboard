@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ICON SPRITE (same as before) -->
+  <svg class="svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><path d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></symbol>
+    <symbol id="i-account" viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4C22,2.89 21.1,2 20,2Z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/></symbol>
+    <symbol id="i-tasks" viewBox="0 0 24 24"><path d="M10,17L6,13L7.41,11.58L10,14.17L16.59,7.58L18,9M12,3A1,1 0 0,1 13,4A1,1 0 0,1 12,5A1,1 0 0,1 11,4A1,1 0 0,1 12,3M19,3H14.82C14.4,1.84 13.3,1 12,1C10.7,1 9.6,1.84 9.18,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z"/></symbol>
+    <symbol id="i-community" viewBox="0 0 24 24"><path d="M12,5.5A3.5,3.5 0 0,1 15.5,9A3.5,3.5 0 0,1 12,12.5A3.5,3.5 0 0,1 8.5,9A3.5,3.5 0 0,1 12,5.5M5,8C5.56,8 6.08,8.15 6.53,8.42C6.38,9.85 6.8,11.27 7.66,12.38C7.16,13.34 6.16,14 5,14A3,3 0 0,1 2,11A3,3 0 0,1 5,8M19,8A3,3 0 0,1 22,11A3,3 0 0,1 19,14C17.84,14 16.84,13.34 16.34,12.38C17.2,11.27 17.62,9.85 17.47,8.42C17.92,8.15 18.44,8 19,8M5.5,18.25C5.5,16.18 8.41,14.5 12,14.5C15.59,14.5 18.5,16.18 18.5,18.25V20H5.5V18.25M0,20V18.5C0,17.11 1.89,15.94 4.45,15.6C3.86,16.28 3.5,17.22 3.5,18.25V20H0M24,20H20.5V18.25C20.5,17.22 20.14,16.28 19.55,15.6C22.11,15.94 24,17.11 24,18.5V20Z"/></symbol>
+    <symbol id="i-cog" viewBox="0 0 24 24"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><path d="M15.07,11.25L14.17,12.17C13.45,12.89 13,13.5 13,15H11V14.5C11,13.39 11.45,12.39 12.17,11.67L13.41,10.41C13.78,10.05 14,9.55 14,9C14,7.89 13.1,7 12,7A2,2 0 0,0 10,9H8A4,4 0 0,1 12,5A4,4 0 0,1 16,9C16,9.88 15.64,10.67 15.07,11.25M13,19H11V17H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M21,19V20H3V19L5,17V11C5,7.9 7.03,5.17 10,4.29C10,4.19 10,4.1 10,4A2,2 0 0,1 12,2A2,2 0 0,1 14,4C14,4.1 14,4.19 14,4.29C16.97,5.17 19,7.9 19,11V17L21,19M14,21A2,2 0 0,1 12,23A2,2 0 0,1 10,21"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12,15.39L8.24,17.66L9.23,13.38L5.91,10.5L10.29,10.13L12,6.09L13.71,10.13L18.09,10.5L14.77,13.38L15.76,17.66M22,9.24L14.81,8.63L12,2L9.19,8.63L2,9.24L7.45,13.97L5.82,21L12,17.27L18.18,21L16.54,13.97L22,9.24Z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><path d="M3.55,19.09L4.96,20.5L6.76,18.71L5.34,17.29M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6M11,1V4H13V1M11,20V23H13V20M20,11H23V13H20M1,11H4V13H1M18.71,6.76L20.5,4.96L19.09,3.55L17.29,5.34M5.34,6.66L3.55,4.96L4.96,3.55L6.76,5.34M18.71,17.29L20.5,19.09L19.09,20.5L17.29,18.71M5.34,17.34L4.96,18.71L3.55,20.5L4.96,21.91L6.76,20.09"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M17.75,4.09L15.22,6.03L16.13,9.09L13.5,7.28L10.87,9.09L11.78,6.03L9.25,4.09L12.44,4L13.5,1L14.56,4L17.75,4.09M21.25,11L19.61,12.25L20.2,14.23L18.5,13.06L16.8,14.23L17.39,12.25L15.75,11L17.81,10.95L18.5,9L19.19,10.95L21.25,11M18.97,15.95C19.8,15.87 20.69,17.05 20.16,17.8C19.84,18.25 19.5,18.67 19.08,19.07C15.17,23 8.84,23 4.94,19.07C1.03,15.17 1.03,8.83 4.94,4.93C5.34,4.53 5.76,4.17 6.21,3.85C6.96,3.32 8.14,4.21 8.06,5.04C7.79,7.9 8.75,10.87 10.95,13.06C13.14,15.26 16.1,16.22 18.97,15.95Z"/></symbol>
+  </svg>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar__brand">
+        <svg class="icon icon--lg"><use href="#i-dashboard"></use></svg>
+        <span>Dashboard</span>
+      </div>
+
+      <nav class="sidebar__nav" id="mainNav" aria-label="Main">
+        <a href="#" class="active" data-nav><svg class="icon"><use href="#i-home"></use></svg><span>Home</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-account"></use></svg><span>Profile</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-message"></use></svg><span>Messages</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-history"></use></svg><span>History</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-tasks"></use></svg><span>Tasks</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-community"></use></svg><span>Communities</span></a>
+      </nav>
+
+      <nav class="sidebar__nav sidebar__nav--secondary" aria-label="Secondary">
+        <a href="#" data-nav><svg class="icon"><use href="#i-cog"></use></svg><span>Settings</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-help"></use></svg><span>Support</span></a>
+        <a href="#" data-nav><svg class="icon"><use href="#i-shield"></use></svg><span>Privacy</span></a>
+      </nav>
+    </aside>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="header__search">
+        <svg class="icon"><use href="#i-search"></use></svg>
+        <input type="search" id="searchInput" placeholder="Search projects…" aria-label="Search" />
+      </div>
+
+      <div class="header__account">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon"><use href="#i-moon"></use></svg>
+        </button>
+
+        <div class="dropdown" id="notifDropdown">
+          <button class="icon-btn" id="notifBtn" data-badge="3" aria-label="Notifications">
+            <svg class="icon"><use href="#i-bell"></use></svg>
+          </button>
+          <div class="dropdown__menu">
+            <div class="dropdown__item">
+              <svg class="icon"><use href="#i-message"></use></svg>
+              <div><strong>New message</strong><small>From @tegan · 2m ago</small></div>
+            </div>
+            <div class="dropdown__item">
+              <svg class="icon"><use href="#i-star"></use></svg>
+              <div><strong>Project starred</strong><small>@alex starred your work · 1h ago</small></div>
+            </div>
+            <div class="dropdown__item">
+              <svg class="icon"><use href="#i-tasks"></use></svg>
+              <div><strong>Task assigned</strong><small>"Fix grid bug" · 3h ago</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="avatar avatar--sm">MO</div>
+        <span class="header__username">Morgan Oakley</span>
+      </div>
+
+      <div class="header__greeting">
+        <div class="avatar avatar--lg">MO</div>
+        <div class="header__greeting-text">
+          <p class="header__greeting-hi" id="greetingHi">Hi there,</p>
+          <p class="header__greeting-name">Morgan Oakley (@morgan)</p>
+        </div>
+      </div>
+
+      <div class="header__actions">
+        <button class="btn" id="newProjectBtn">New</button>
+        <button class="btn" data-action="Upload">Upload</button>
+        <button class="btn" data-action="Share">Share</button>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <section class="section projects">
+        <h2 class="section__title">Your Projects</h2>
+        <div class="projects__grid" id="projectsGrid">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+
+      <section class="section announcements">
+        <h2 class="section__title">Announcements</h2>
+        <div class="panel announcements__list">
+          <article class="announcement">
+            <h3 class="announcement__title">Site Maintenance</h3>
+            <p class="announcement__text">Vestibulum condimentum tellus lacus, in accumsan elit maximus ac. Donec hendrerit sodales congue…</p>
+          </article>
+          <article class="announcement">
+            <h3 class="announcement__title">Community Share Day</h3>
+            <p class="announcement__text">Nam vel lectus tincidunt, rutrum nulla eu, ornare libero. Aliquam dictum accumsan porttitor…</p>
+          </article>
+          <article class="announcement">
+            <h3 class="announcement__title">Updated Privacy Policy</h3>
+            <p class="announcement__text">Phasellus efficitur nisi eget elit consectetur, eget condimentum ante auctor. Cras fringilla sagittis sem…</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section trending">
+        <h2 class="section__title">Trending</h2>
+        <div class="panel trending__list">
+          <article class="trend">
+            <div class="avatar avatar--sm avatar--teal">T</div>
+            <div><p class="trend__handle">@tegan</p><p class="trend__project">World Peace Builder</p></div>
+          </article>
+          <article class="trend">
+            <div class="avatar avatar--sm">MO</div>
+            <div><p class="trend__handle">@morgan</p><p class="trend__project">Super Cool Project</p></div>
+          </article>
+          <article class="trend">
+            <div class="avatar avatar--sm avatar--purple">K</div>
+            <div><p class="trend__handle">@kendall</p><p class="trend__project">Life Changing App</p></div>
+          </article>
+          <article class="trend">
+            <div class="avatar avatar--sm avatar--green">A</div>
+            <div><p class="trend__handle">@alex</p><p class="trend__project">No Traffic Maker</p></div>
+          </article>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
